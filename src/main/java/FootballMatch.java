@@ -12,9 +12,8 @@ public class FootballMatch {
      * если не угадал ничего - возвращать 0.</p>
      */
     public int matchResult(int result1, int result2, int bet1, int bet2) {
-        //int result = (bet1 >= result1 && bet2 >= result2) ? (bet1 == result1 && bet2 == result2) ? 2 : (result1 == result2) ? (bet1 == bet2) ? 1 : 0: (bet1 == bet2) ? 0 : 1 : 0;
-        int result = (bet1 == result1 && bet2 == result2) ? 2 : ((bet1 - result1) < 0 || (bet2 - result2) < 0) ? 0: 1;
-            //sdfsd
+        int result = (bet1 == result1 && bet2 == result2) ? 2 : ((bet1 == bet2 && result1 == result2) || ((((bet2 - bet1) >= 0 && (result2 - result1) >= 0) || ((bet2 - bet1) < 0 && (result2 - result1) < 0)) && (result1 != result2 && bet1 != bet2))) ? 1 : 0;
+
         return result;
     }
 }
